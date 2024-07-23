@@ -23,29 +23,41 @@ public class StudentManagementSystem {
 
         tableModel = new DefaultTableModel(new String[]{"Name", "Roll Number", "Grade"}, 0);
         table = new JTable(tableModel);
+        table.getTableHeader().setBackground(Color.decode("#87CEEB")); // Light blue
+        table.getTableHeader().setForeground(Color.WHITE);
+        table.setSelectionBackground(Color.decode("#6495ED")); // Light blue
+        table.setSelectionForeground(Color.WHITE);
         frame.add(new JScrollPane(table), BorderLayout.CENTER);
 
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(4, 2));
+        panel.setBackground(Color.decode("#F0F0F0")); // Light gray
 
         panel.add(new JLabel("Name:"));
         nameField = new JTextField();
+        nameField.setBackground(Color.WHITE);
         panel.add(nameField);
 
         panel.add(new JLabel("Roll Number:"));
         rollNumberField = new JTextField();
+        rollNumberField.setBackground(Color.WHITE);
         panel.add(rollNumberField);
 
         panel.add(new JLabel("Grade:"));
         gradeField = new JTextField();
+        gradeField.setBackground(Color.WHITE);
         panel.add(gradeField);
 
         JButton addButton = new JButton("Add Student");
         addButton.addActionListener(new AddStudentAction());
+        addButton.setBackground(Color.decode("#32CD32")); // Light green
+        addButton.setForeground(Color.WHITE);
         panel.add(addButton);
 
         JButton removeButton = new JButton("Remove Student");
         removeButton.addActionListener(new RemoveStudentAction());
+        removeButton.setBackground(Color.decode("#FF0000")); // Red
+        removeButton.setForeground(Color.WHITE);
         panel.add(removeButton);
 
         frame.add(panel, BorderLayout.SOUTH);
@@ -91,7 +103,7 @@ public class StudentManagementSystem {
         @Override
         public void actionPerformed(ActionEvent e) {
             int selectedRow = table.getSelectedRow();
-            if (selectedRow != -1) {
+            if (selectedRow!= -1) {
                 students.remove(selectedRow);
                 tableModel.removeRow(selectedRow);
             } else {
@@ -183,3 +195,5 @@ public class StudentManagementSystem {
         }
     }
 }
+
+//thanks
